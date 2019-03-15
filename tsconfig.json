@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
+    "lib": ["dom", "es5", "es6", "esnext"],
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "typeRoots": [
+      "node_modules/@types", 
+      "@types"
+    ],
+    "declaration": true,
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "pretty": true,
+    "sourceMap": true
+  },
+  "exlude": [
+    "node_modules",
+    "@types"
+  ]
+}

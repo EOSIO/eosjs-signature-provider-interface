@@ -1,0 +1,74 @@
+{
+  "name": "@blockone/eosjs-signature-provider-interface",
+  "version": "6.0.1",
+  "description": "An abstract class that implements the EOSJS SignatureProvider interface, and provides helper methods for interacting with an authenticator using the EOSIO Authentication Transport Protocol Specification.",
+  "author": {
+    "name": "block.one",
+    "url": "https://block.one"
+  },
+  "contributors": [
+    "Ryan Wiesjahn",
+    "Tara Tritt",
+    "Randy Torres",
+    "Jeffrey Smith II"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/EOSIO/eosjs-signature-provider-interface#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EOSIO/eosjs-signature-provider-interface.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EOSIO/eosjs-signature-provider-interface/issues"
+  },
+  "keywords": [
+    "signature",
+    "provider",
+    "interface",
+    "bridge",
+    "eos",
+    "eosio",
+    "eosjs"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "yarn clean && yarn lint && tsc -p ./tsconfig.json",
+    "test": "jest",
+    "lint": "tslint \"src/**/*.ts{,?}\"",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "eosjs": "20.0.0-8b096ed.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@blockone/tslint-config-blockone": "^1.0.0",
+    "@types/node": "^10.12.12",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "tslib": "^1.9.3",
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.1"
+  },
+  "jest": {
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "collectCoverageFrom": [
+      "src/**"
+    ],
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "text-summary"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "coverageThreshold": {}
+  }
+}
