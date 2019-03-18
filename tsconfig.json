@@ -7,7 +7,7 @@
     "outDir": "./dist",
     "moduleResolution": "node",
     "typeRoots": [
-      "node_modules/@types", 
+      "node_modules/@types",
       "@types"
     ],
     "declaration": true,
@@ -18,8 +18,10 @@
     "pretty": true,
     "sourceMap": true
   },
-  "exlude": [
-    "node_modules",
-    "@types"
+  "include": [
+    "src/*"
+  ],
+  "exclude": [
+    "src/**/*.test.ts"
   ]
 }
