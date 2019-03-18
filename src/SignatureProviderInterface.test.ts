@@ -55,7 +55,7 @@ describe('SignatureProviderInterface', () => {
     })
 
     describe('if cached keys are empty', () => {
-      it('does not returns cached keys', async () => {
+      it('does not return cached keys', async () => {
         mockGetCachedKeys.mockReturnValue([])
         signatureProviderInterface = createSignatureProvider()
         const result = await signatureProviderInterface.getAvailableKeys()
@@ -64,7 +64,7 @@ describe('SignatureProviderInterface', () => {
     })
 
     describe('if cached keys is null', () => {
-      it('does not returns cached keys', async () => {
+      it('does not return cached keys', async () => {
         mockGetCachedKeys.mockReturnValue(null)
         signatureProviderInterface = createSignatureProvider()
         const result = await signatureProviderInterface.getAvailableKeys()
@@ -73,7 +73,7 @@ describe('SignatureProviderInterface', () => {
     })
 
     describe('if cached keys is undefined', () => {
-      it('does not returns cached keys', async () => {
+      it('does not return cached keys', async () => {
         mockGetCachedKeys.mockReturnValue(undefined)
         signatureProviderInterface = createSignatureProvider()
         const result = await signatureProviderInterface.getAvailableKeys()
