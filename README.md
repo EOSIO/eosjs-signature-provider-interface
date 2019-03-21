@@ -2,6 +2,12 @@
 
 An abstract class that implements the [EOSJS Signature Provider interface](https://github.com/EOSIO/eosjs/blob/68272dd4a52f6fca51a4ff668d3800eafe5a19e4/src/eosjs-api-interfaces.ts#L61), and provides helper methods for interacting with an authenticator using the [EOSIO Authentication Transport Protocol Specification](https://github.com/EOSIO/eosio-authentication-transport-protocol-spec).
 
+![EOSIO Labs](https://img.shields.io/badge/EOSIO-LABS-blue.svg)
+
+## About EOSIO Labs
+
+EOSIO Labs repositories are experimental.  Developers in the community are encouraged to use EOSIO Labs repositories as the basis for code and concepts to incorporate into their applications. Community members are also welcome to contribute and further develop these repositories. Since these repositories are not supported by Block.one, we may not provide responses to issue reports, pull requests, updates to functionality, or other requests from the community, and we encourage the community to take responsibility for these.
+
 ## Overview
 
 This base class handles creating the request envelopes with the expected data structure specified by the EOSIO Authentication Transport Protocol Specification. Concrete implementations can then create specific SignatureProviders for different platforms and environments by implementing the transport method used. These SignatureProviders can then be plugged into `eosjs` to enable communicating with an external authenticator. Full instructions for `eosjs` can be found [here](https://github.com/EOSIO/eosjs).
