@@ -2,7 +2,7 @@
 
 An abstract class that implements the [EOSJS Signature Provider interface](https://github.com/EOSIO/eosjs/blob/68272dd4a52f6fca51a4ff668d3800eafe5a19e4/src/eosjs-api-interfaces.ts#L61), and provides helper methods for interacting with an authenticator using the [EOSIO Authentication Transport Protocol Specification](https://github.com/EOSIO/eosio-authentication-transport-protocol-spec).
 
-![EOSIO Labs](https://img.shields.io/badge/EOSIO-LABS-blue.svg)
+![EOSIO Labs](https://img.shields.io/badge/EOSIO-Labs-5cb3ff.svg)
 
 ## About EOSIO Labs
 
