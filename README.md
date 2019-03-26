@@ -104,10 +104,10 @@ export class SignatureProvider extends SignatureProviderInterface {
 - [EOSIO Authentication Transport Protocol Specification](https://github.com/EOSIO/eosio-authentication-transport-protocol-spec)
 
 ## Contribution
-Check out the [Contributing](https://github.com/EOSIO/eosjs-signature-provider-interface/blob/develop/CONTRIBUTING.md) guide and please adhere to the [Code of Conduct](https://github.com/EOSIO/eosjs-signature-provider-interface/blob/develop/CONTRIBUTING.md#conduct)
+Check out the [Contributing](./CONTRIBUTING.md) guide and please adhere to the [Code of Conduct](./CONTRIBUTING.md#conduct)
 
 ## License
-[MIT licensed](https://github.com/EOSIO/eosjs-signature-provider-interface/blob/develop/LICENSE)
+[MIT licensed](./LICENSE)
 
 ## Important
 
