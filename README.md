@@ -15,7 +15,7 @@ This base class handles creating the request envelopes with the expected data st
 ## Installation
 
 ```bash
-yarn add @blockone/eosjs-signature-provider-interface
+yarn add eosjs-signature-provider-interface
 ```
 
 ## Usage
@@ -32,7 +32,7 @@ import {
   instanceOfResponseEnvelope,
   packEnvelope,
   unpackEnvelope,
-} from '@blockone/eosjs-signature-provider-interface'
+} from 'eosjs-signature-provider-interface'
 
 export class SignatureProvider extends SignatureProviderInterface {
   private cachedKeys: string[]
