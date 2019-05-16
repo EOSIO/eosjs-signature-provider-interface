@@ -38,11 +38,12 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "eosjs": "20.0.0-8b096ed.0",
+    "eosjs": "^20.0.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@blockone/tslint-config-blockone": "^1.0.0",
+    "@types/jest": "^24.0.13",
     "@types/node": "^10.12.12",
     "jest": "^24.5.0",
     "ts-jest": "^24.0.0",
