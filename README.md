@@ -97,7 +97,6 @@ export class SignatureProvider extends SignatureProviderInterface {
 
 ## Links
 - Implementations
-  - [React Native](https://github.com/EOSIO/eosjs-react-native-signature-provider-interface)
   - [iOS Safari](https://github.com/EOSIO/eosjs-ios-browser-signature-provider-interface)
   - [Desktop Browser Extensions](https://github.com/EOSIO/eosjs-window-message-signature-provider-interface)
 - [EOSIO Authentication Transport Protocol Specification](https://github.com/EOSIO/eosio-authentication-transport-protocol-spec)
