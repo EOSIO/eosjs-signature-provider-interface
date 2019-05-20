@@ -3,6 +3,7 @@ import {
   AppMetadata,
   ChainInfo,
   ChainManifest,
+  Manifest,
   ContractAction,
   EnvelopeDataType,
   SelectiveDisclosureRequest,
@@ -49,12 +50,22 @@ export const instanceOfTransactionSignatureResponse = (response: SignatureProvid
   return EnvelopeDataType.TRANSACTION_SIGNATURE in response
 }
 
-export const instanceOfChainManifest = (object: any): object is ChainManifest => {
-  return hasRequiredKeys(object, ['chainId', 'manifest'])
-    && instanceOfAppManifest(object.manifest)
+export const instanceOfAppManifest = (object: any): object is AppManifest => {
+  const hasValidChainManifests =
+    isValidArray(object.manifests)
+    ? object.manifests.every((chainManifest: ChainManifest) => instanceOfChainManifest(chainManifest))
+    : false
+
+  return hasRequiredKeys(object, ['spec_version', 'manifests'])
+    && hasValidChainManifests
 }
 
-export const instanceOfAppManifest = (object: any): object is AppManifest => {
+export const instanceOfChainManifest = (object: any): object is ChainManifest => {
+  return hasRequiredKeys(object, ['chainId', 'manifest'])
+    && instanceOfManifest(object.manifest)
+}
+
+export const instanceOfManifest = (object: any): object is Manifest => {
   const hasValidWhitelist =
     isValidArray(object.whitelist)
     ? object.whitelist.every((contractAction: ContractAction) => instanceOfContractAction(contractAction))
@@ -70,7 +81,7 @@ export const instanceOfAppMetadata = (object: any): object is AppMetadata => {
     ? object.chains.every((chainInfo: ChainInfo) => instanceOfChainInfo(chainInfo))
     : false
 
-  return hasRequiredKeys(object, ['name', 'shortname', 'scope', 'apphome', 'icon', 'chains'])
+  return hasRequiredKeys(object, ['spec_version', 'name', 'shortname', 'scope', 'apphome', 'icon', 'chains'])
     && hasValidChainInfo
 }
 
