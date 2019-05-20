@@ -1,12 +1,13 @@
 import {
   AppMetadata,
-  ChainManifest,
+  AppManifest,
   SecurityExclusions,
   SignatureProviderRequestEnvelope,
   SignatureProviderResponseEnvelope,
 } from '../interfaces'
 
 export const appMetadata: AppMetadata = {
+  spec_version: '0.0.7',
   name: 'App Name',
   shortname: 'App Short Name',
   scope: '/',
@@ -28,52 +29,55 @@ export const appMetadata: AppMetadata = {
   ],
 }
 
-export const chainManifests: ChainManifest[] = [
-  {
-    chainId: 'chainId1',
-    manifest: {
-      account: 'account',
-      domain: 'http://example.com',
-      appmeta: 'http://example.com/app-metadata.json#SHA256Hash',
-      whitelist: [
-        {
-          contract: 'account.one',
-          action: 'action1',
-        },
-        {
-          contract: 'account.one',
-          action: 'action2',
-        },
-        {
-          contract: 'account.one',
-          action: 'action3',
-        }
-      ],
+export const appManifest: AppManifest = {
+  spec_version: '0.0.7',
+  manifests: [
+    {
+      chainId: 'chainId1',
+      manifest: {
+        account: 'account',
+        domain: 'http://example.com',
+        appmeta: 'http://example.com/app-metadata.json#SHA256Hash',
+        whitelist: [
+          {
+            contract: 'account.one',
+            action: 'action1',
+          },
+          {
+            contract: 'account.one',
+            action: 'action2',
+          },
+          {
+            contract: 'account.one',
+            action: 'action3',
+          }
+        ],
+      },
     },
-  },
-  {
-    chainId: 'chainId2',
-    manifest: {
-      account: 'account',
-      domain: 'http://example.com',
-      appmeta: 'http://example.com/app-metadata.json#SHA256Hash',
-      whitelist: [
-        {
-          contract: 'account.one',
-          action: 'action4',
-        },
-        {
-          contract: 'account.one',
-          action: 'action5',
-        },
-        {
-          contract: 'account.one',
-          action: 'action6',
-        }
-      ],
-    },
-  }
-]
+    {
+      chainId: 'chainId2',
+      manifest: {
+        account: 'account',
+        domain: 'http://example.com',
+        appmeta: 'http://example.com/app-metadata.json#SHA256Hash',
+        whitelist: [
+          {
+            contract: 'account.one',
+            action: 'action4',
+          },
+          {
+            contract: 'account.one',
+            action: 'action5',
+          },
+          {
+            contract: 'account.one',
+            action: 'action6',
+          }
+        ],
+      },
+    }
+  ]
+}
 
 export const securityExclusions: SecurityExclusions = {
   addAssertToTransactions: false,

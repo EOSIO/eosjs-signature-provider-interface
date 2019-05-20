@@ -19,32 +19,39 @@ export interface ContractAction {
 }
 
 export interface AppMetadata {
-  name: string,
-  shortname: string,
-  scope: string,
-  apphome: string,
-  icon: string,
-  description?: string,
-  sslfingerprint?: string,
-  chains: ChainInfo[],
+  spec_version: string
+  name: string
+  shortname: string
+  scope: string
+  apphome: string
+  icon: string
+  appIdentifiers?: string[]
+  description?: string
+  sslfingerprint?: string
+  chains: ChainInfo[]
 }
 
 export interface ChainInfo {
-  chainId: string,
-  chainName: string,
-  icon: string,
+  chainId: string
+  chainName: string
+  icon: string
 }
 
 export interface AppManifest {
-  account: string
-  domain: string
-  appmeta: string
-  whitelist: ContractAction[]
+  spec_version: string
+  manifests: ChainManifest[]
 }
 
 export interface ChainManifest {
   chainId: string
-  manifest: AppManifest
+  manifest: Manifest
+}
+
+export interface Manifest {
+  account: string
+  domain: string
+  appmeta: string
+  whitelist: ContractAction[]
 }
 
 export interface Transaction {
