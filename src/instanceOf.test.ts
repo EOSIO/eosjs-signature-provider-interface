@@ -5,6 +5,7 @@ import {
   AppManifest,
   AppMetadata,
   ChainManifest,
+  Manifest,
   SignatureProviderRequest,
   SignatureProviderRequestEnvelope,
   SignatureProviderResponse,
@@ -176,11 +177,41 @@ describe('instanceOf', () => {
     })
   })
 
+  describe('instanceOfAppManifest', () => {
+    let appManifest: AppManifest
+
+    beforeEach(() => {
+      appManifest = clone(data.appManifest)
+    })
+
+    it('returns true for a valid AppManifest configuration', () => {
+      expect(instanceOf.instanceOfAppManifest(appManifest)).toBe(true)
+    })
+
+    it('returns false for a valid AppManifest configuration with missing spec_version', () => {
+      delete appManifest.spec_version
+      expect(instanceOf.instanceOfAppManifest(appManifest)).toBe(false)
+    })
+
+    it('returns false for a valid AppManifest configuration with missing manifests', () => {
+      delete appManifest.manifests
+      expect(instanceOf.instanceOfAppManifest(appManifest)).toBe(false)
+    })
+
+    it('checks if chain manifests are valid', () => {
+      const spy = jest.spyOn(instanceOf, 'instanceOfChainManifest')
+      instanceOf.instanceOfAppManifest(appManifest)
+      expect(spy).toHaveBeenCalledTimes(appManifest.manifests.length)
+      expect(spy).toHaveBeenCalledWith(appManifest.manifests[0])
+      expect(spy).toHaveBeenCalledWith(appManifest.manifests[1])
+    })
+  })
+
   describe('instanceOfChainManifest', () => {
     let chainManifest: ChainManifest
 
     beforeEach(() => {
-      chainManifest = clone(data.chainManifests[0])
+      chainManifest = clone(data.appManifest.manifests[0])
     })
 
     it('returns true for a valid ChainManifest configuration', () => {
@@ -198,46 +229,46 @@ describe('instanceOf', () => {
     })
 
     it('checks if manifest is valid', () => {
-      const spy = jest.spyOn(instanceOf, 'instanceOfAppManifest')
+      const spy = jest.spyOn(instanceOf, 'instanceOfManifest')
       instanceOf.instanceOfChainManifest(chainManifest)
       expect(spy).toHaveBeenCalledWith(chainManifest.manifest)
     })
   })
 
-  describe('instanceOfAppManifest', () => {
-    let appManifest: AppManifest
+  describe('instanceOfManifest', () => {
+    let manifest: Manifest
 
     beforeEach(() => {
-      appManifest = clone(data.chainManifests[0].manifest)
+      manifest = clone(data.appManifest.manifests[0].manifest)
     })
 
-    it('returns true for a valid AppManifest configuration', () => {
-      expect(instanceOf.instanceOfAppManifest(appManifest)).toBe(true)
+    it('returns true for a valid Manifest configuration', () => {
+      expect(instanceOf.instanceOfManifest(manifest)).toBe(true)
     })
 
-    it('returns false for an invalid AppManifest configuration with missing required account', () => {
-      delete appManifest.account
-      expect(instanceOf.instanceOfAppManifest(appManifest)).toBe(false)
+    it('returns false for an invalid Manifest configuration with missing required account', () => {
+      delete manifest.account
+      expect(instanceOf.instanceOfManifest(manifest)).toBe(false)
     })
 
-    it('returns false for an invalid AppManifest configuration with missing required domain', () => {
-      delete appManifest.domain
-      expect(instanceOf.instanceOfAppManifest(appManifest)).toBe(false)
+    it('returns false for an invalid Manifest configuration with missing required domain', () => {
+      delete manifest.domain
+      expect(instanceOf.instanceOfManifest(manifest)).toBe(false)
     })
 
-    it('returns false for an invalid AppManifest configuration with missing required appmeta', () => {
-      delete appManifest.appmeta
-      expect(instanceOf.instanceOfAppManifest(appManifest)).toBe(false)
+    it('returns false for an invalid Manifest configuration with missing required appmeta', () => {
+      delete manifest.appmeta
+      expect(instanceOf.instanceOfManifest(manifest)).toBe(false)
     })
 
-    it('returns false for an invalid AppManifest configuration with missing required whitelist', () => {
-      delete appManifest.whitelist
-      expect(instanceOf.instanceOfAppManifest(appManifest)).toBe(false)
+    it('returns false for an invalid Manifest configuration with missing required whitelist', () => {
+      delete manifest.whitelist
+      expect(instanceOf.instanceOfManifest(manifest)).toBe(false)
     })
 
-    it('returns false for an invalid AppManifest configuration with invalid whitelist object', () => {
-      appManifest.whitelist[0] = { invalid: 'invalid' } as any
-      expect(instanceOf.instanceOfAppManifest(appManifest)).toBe(false)
+    it('returns false for an invalid Manifest configuration with invalid whitelist object', () => {
+      manifest.whitelist[0] = { invalid: 'invalid' } as any
+      expect(instanceOf.instanceOfManifest(manifest)).toBe(false)
     })
   })
 
@@ -250,6 +281,11 @@ describe('instanceOf', () => {
 
     it('returns true for a valid AppMetadata configuration', () => {
       expect(instanceOf.instanceOfAppMetadata(appMetadata)).toBe(true)
+    })
+
+    it('returns false for a valid AppManifest configuration with missing spec_version', () => {
+      delete appMetadata.spec_version
+      expect(instanceOf.instanceOfAppMetadata(appMetadata)).toBe(false)
     })
 
     it('returns false for an invalid AppMetadata configuration with missing required name', () => {

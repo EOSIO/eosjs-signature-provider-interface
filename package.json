@@ -1,6 +1,6 @@
 {
-  "name": "eosjs-signature-provider-interface",
-  "version": "0.1.0",
+  "name": "@blockone/eosjs-signature-provider-interface",
+  "version": "7.0.0",
   "description": "An abstract class that implements the EOSJS SignatureProvider interface, and provides helper methods for interacting with an authenticator using the EOSIO Authentication Transport Protocol Specification.",
   "author": {
     "name": "block.one",
@@ -42,9 +42,10 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@blockone/tslint-config-blockone": "^1.0.0",
+    "@blockone/tslint-config-blockone": "^4.0.0",
     "@types/jest": "^24.0.13",
     "@types/node": "^10.12.12",
+    "@types/uuid": "^3.4.4",
     "jest": "^24.5.0",
     "ts-jest": "^24.0.0",
     "tslib": "^1.9.3",
