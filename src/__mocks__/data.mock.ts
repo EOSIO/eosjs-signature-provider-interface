@@ -1,6 +1,6 @@
 import {
-  AppMetadata,
   AppManifest,
+  AppMetadata,
   SecurityExclusions,
   SignatureProviderRequestEnvelope,
   SignatureProviderResponseEnvelope,
