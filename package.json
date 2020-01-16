@@ -1,6 +1,6 @@
 {
   "name": "eosjs-signature-provider-interface",
-  "version": "0.1.2",
+  "version": "1.0.0-rc1",
   "description": "An abstract class that implements the EOSJS SignatureProvider interface, and provides helper methods for interacting with an authenticator using the EOSIO Authentication Transport Protocol Specification.",
   "author": {
     "name": "block.one",
